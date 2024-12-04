@@ -1,0 +1,24 @@
+{
+  "total_questions": 499,
+  "average_time_per_question": "63.68s",
+  "average_time_raw": 63.67679982491765,
+  "dataset": "HuggingFaceH4/MATH-500",
+  "solver_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "solver_temperature": 0.0,
+  "solver_max_tokens": 4096,
+  "validator_model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "validator_temperature": 0.0,
+  "validator_max_tokens": 512,
+  "metrics": {
+    "pass@1": 80.36072144288578,
+    "average_pass@k": 80.36072144288578
+  },
+  "metrics_config": {
+    "k_values": [
+      1
+    ],
+    "weighted_k": false,
+    "weights": null
+  },
+  "timestamp": "2024-12-03T12:11:29.537840"
+}
