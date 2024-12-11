@@ -1,7 +1,8 @@
-import os
 import logging
-from typing import Optional
+import os
 from dataclasses import dataclass
+from typing import Optional
+
 
 @dataclass
 class LLMConfig:
@@ -94,7 +95,7 @@ DATASET_CONFIGS = {
     ),
     "gpqa": DatasetConfig(
         dataset_name="Idavidrein/gpqa",
-        config_name="gpqa_main",
+        config_name="gpqa_diamond",
         question_field="Question",
         answer_field="Correct Answer",
         split="train",
@@ -102,6 +103,13 @@ DATASET_CONFIGS = {
         choice_fields=["Correct Answer", "Incorrect Answer 1", "Incorrect Answer 2", "Incorrect Answer 3"],
         subject_field="High-level domain",
         level_field="Writer's Difficulty Estimate",
+        limit=parse_test_limit()
+    ),
+    "aime": DatasetConfig(
+        dataset_name="AI-MO/aimo-validation-aime",
+        question_field="problem",
+        answer_field="answer",
+        split="train",
         limit=parse_test_limit()
     )
 }

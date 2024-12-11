@@ -1,9 +1,11 @@
 import asyncio
 import random
 from datetime import datetime
-from typing import List, Optional, Dict, Any
+from typing import Any, Dict, List, Optional
+
 from openai import OpenAI
-from .config import LLMConfig, DatasetConfig
+
+from .config import DatasetConfig, LLMConfig
 from .metrics_config import MetricsConfig
 
 

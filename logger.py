@@ -1,5 +1,6 @@
 import logging
 
+
 def setup_logger():
     """Configure logging settings"""
     logging.basicConfig(

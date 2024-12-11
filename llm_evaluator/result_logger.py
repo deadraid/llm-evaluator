@@ -1,10 +1,13 @@
-import os
 import json
 import logging
+import os
 from datetime import datetime
-import numpy as np
 from typing import Dict
+
+import numpy as np
+
 from .metrics import MetricsCalculator
+
 
 class ResultLogger:
     def __init__(self, dataset_config, solver_config, validator_config, metrics_config):

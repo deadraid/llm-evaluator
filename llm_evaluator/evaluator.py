@@ -1,13 +1,16 @@
 import asyncio
 import time
 from typing import Dict, Optional
-from tqdm import tqdm
-from datasets import load_dataset, Dataset
-from huggingface_hub import login
 
-from llm_evaluator import ItemProcessor, MetricsCalculator, ResultLogger
-from llm_evaluator.config import LLMConfig, DatasetConfig
-from llm_evaluator.metrics_config import MetricsConfig
+from datasets import Dataset, load_dataset
+from huggingface_hub import login
+from tqdm import tqdm
+
+from .config import DatasetConfig, LLMConfig
+from .metrics import MetricsCalculator
+from .metrics_config import MetricsConfig
+from .processor import ItemProcessor
+from .result_logger import ResultLogger
 
 
 class LLMEvaluator:

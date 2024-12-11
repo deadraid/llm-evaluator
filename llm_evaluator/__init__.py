@@ -1,6 +1,7 @@
-from .processor import ItemProcessor
-from .metrics import MetricsCalculator
-from .logger import ResultLogger
 from .evaluator import LLMEvaluator
+from .metrics import MetricsCalculator
+from .processor import ItemProcessor
+from .result_logger import ResultLogger
 
-__all__ = ['LLMEvaluator', 'ItemProcessor', 'MetricsCalculator', 'ResultLogger']
+__version__ = "0.1.0"
+__all__ = ["ItemProcessor", "MetricsCalculator", "ResultLogger", "LLMEvaluator"]
