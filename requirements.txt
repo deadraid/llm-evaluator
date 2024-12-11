@@ -1,6 +1,0 @@
-datasets
-openai
-numpy
-tqdm
-huggingface-hub
-python-dotenv
