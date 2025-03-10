@@ -17,17 +17,20 @@ A comprehensive framework for evaluating Large Language Model (LLM) performance 
 This project uses Poetry for dependency management. To get started:
 
 1. Install Poetry if you haven't already:
+
 ```bash
 curl -sSL https://install.python-poetry.org | python3 -
 ```
 
 2. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd llm-evaluator
 ```
 
 3. Install dependencies:
+
 ```bash
 poetry install
 ```
@@ -74,20 +77,25 @@ The framework currently supports the following datasets:
 - TruthfulQA
 - GPQA
 - AIME (American Invitational Mathematics Examination)
+- AIME-2025
+- AIME-2024
 
 ## Usage
 
 1. Activate the Poetry environment:
+
 ```bash
 poetry shell
 ```
 
 2. Run the evaluator:
+
 ```bash
 python main.py
 ```
 
 The evaluator will:
+
 1. Load the specified datasets
 2. Process questions using the solver model
 3. Validate answers using the validator model
@@ -98,9 +106,9 @@ The evaluator will:
 The framework generates several output files:
 
 - `evaluation_results/`: Directory containing all evaluation results
-    - `summary_results_[dataset]_[timestamp].json`: Summary metrics for each evaluation
-    - `detailed_results_[dataset]_[timestamp].json`: Detailed results including all predictions
-    - `evaluation_history.json`: Historical record of all evaluations
+  - `summary_results_[dataset]_[timestamp].json`: Summary metrics for each evaluation
+  - `detailed_results_[dataset]_[timestamp].json`: Detailed results including all predictions
+  - `evaluation_history.json`: Historical record of all evaluations
 - `llm_evaluation.log`: Detailed logging information
 
 ## Metrics
@@ -122,7 +130,31 @@ poetry run ruff check .
 
 ## License
 
-[Your chosen license]
+This project is licensed under the MIT License - see below for details:
+
+```
+MIT License
+
+Copyright (c) 2024 deadraid
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
 
 ## Contributing
 
@@ -135,6 +167,4 @@ poetry run ruff check .
 
 ## Contact
 
-Your Name - [your.email@example.com](mailto:your.email@example.com)
-
-Project Link: [https://github.com/username/llm-evaluator](https://github.com/username/llm-evaluator)
+Project Link: [https://github.com/deadraid/llm-evaluator](https://github.com/deadraid/llm-evaluator)
