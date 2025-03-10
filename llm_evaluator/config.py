@@ -10,6 +10,7 @@ class LLMConfig:
     api_key: str
     base_url: str
     model: str
+    system_prompt: str
     temperature: float = float(os.getenv("MODEL_TEMPERATURE", "0.7"))  # Default temperature of 0.7
     max_tokens: int = int(os.getenv("MODEL_MAX_TOKENS", "4096"))      # Default max tokens of 4096
 
@@ -111,6 +112,20 @@ DATASET_CONFIGS = {
         answer_field="answer",
         split="train",
         limit=parse_test_limit()
+    ),
+    "aime-2025": DatasetConfig(
+        dataset_name="rawsh/aime_2025",
+        question_field="problem",
+        answer_field="answer",
+        split="train",
+        limit=parse_test_limit()
+    ),
+    "aime-2024": DatasetConfig(
+        dataset_name="Maxwell-Jia/AIME_2024",
+        question_field="Problem",
+        answer_field="Answer",
+        split="train",
+        limit=parse_test_limit()
     )
 }
 
@@ -119,8 +134,8 @@ def get_model_config(role: str) -> LLMConfig:
     api_key = os.getenv(f"{role}_API_KEY")
     base_url = os.getenv(f"{role}_API_BASE_URL", "https://api.openai.com/v1")
     model = os.getenv(f"{role}_MODEL", "meta-llama/Meta-Llama-3.1-8B-Instruct")
+    system_prompt = os.getenv(f"{role}_SYSTEM_PROMPT", "You're a helpful and harmless AI assistant. You solve problems step by step.")
 
-    # Get role-specific temperature and max_tokens if set, otherwise fall back to general settings
     temperature = float(os.getenv(f"{role}_TEMPERATURE",
                                   os.getenv("MODEL_TEMPERATURE", "0.7")))
 
@@ -131,6 +146,7 @@ def get_model_config(role: str) -> LLMConfig:
         api_key=api_key,
         base_url=base_url,
         model=model,
+        system_prompt = system_prompt,
         temperature=temperature,
         max_tokens=max_tokens
     )
