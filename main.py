@@ -5,7 +5,7 @@ from typing import Dict, List
 from dotenv import dotenv_values, load_dotenv
 
 from llm_evaluator import LLMEvaluator
-from llm_evaluator.config import DATASET_CONFIGS, LLMConfig
+from llm_evaluator.config import DATASET_CONFIGS, LLMConfig, get_model_config
 from llm_evaluator.metrics_config import get_metrics_config
 from logger import setup_logger
 
@@ -93,26 +93,6 @@ def validate_dataset_names(dataset_names: List[str]) -> List[str]:
         sys.exit(1)
 
     return valid_datasets
-
-def get_model_config(role: str) -> LLMConfig:
-    """Get configuration for either solver or validator model with environment variable overrides"""
-    api_key = os.getenv(f"{role}_API_KEY")
-    base_url = os.getenv(f"{role}_API_BASE_URL", "https://api.openai.com/v1")
-    model = os.getenv(f"{role}_MODEL", "meta-llama/Meta-Llama-3.1-8B-Instruct")
-
-    temperature = float(os.getenv(f"{role}_TEMPERATURE",
-                                  os.getenv("MODEL_TEMPERATURE", "0.7")))
-
-    max_tokens = int(os.getenv(f"{role}_MAX_TOKENS",
-                               os.getenv("MODEL_MAX_TOKENS", "4096")))
-
-    return LLMConfig(
-        api_key=api_key,
-        base_url=base_url,
-        model=model,
-        temperature=temperature,
-        max_tokens=max_tokens
-    )
 
 def parse_concurrency_settings():
     """Parse concurrency settings from environment variables"""

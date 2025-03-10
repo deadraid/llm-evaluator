@@ -62,9 +62,13 @@ Is the LLM's answer correct? Please respond with only 'yes' or 'no' and briefly 
             response = await asyncio.to_thread(
                 client.chat.completions.create,
                 model=config.model,
-                messages=[{"role": "user", "content": prompt}],
+                messages=[
+                    {"role": "system", "content":config.system_prompt},
+                          {"role": "user", "content": prompt}
+                ],
                 temperature=config.temperature,
-                max_tokens=config.max_tokens
+                max_tokens=config.max_tokens,
+                top_p=0.95,
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
