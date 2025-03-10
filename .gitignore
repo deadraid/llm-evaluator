@@ -9,6 +9,7 @@ __pycache__/
 .tmp
 # Distribution / packaging
 .Python
+benchmarks
 build/
 develop-eggs/
 dist/
